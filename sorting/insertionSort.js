@@ -1,16 +1,14 @@
-function Insertion(arr, elem) {
-  arr.push(0); // first create free space
-  for (let i = arr.length - 2; i >= 0; i--) {
-    // start loop from second last
-    if (arr[i] > elem) {
-      arr[i + 1] = arr[i];
-    } else {
-      arr[i+1] = elem;
-      return arr;
+function Insertion(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let key = arr[i];
+    j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j--;
     }
+    arr[j + 1] = key;
   }
-  arr[0] = elem;
   return arr;
 }
 
-console.log(Insertion([1, 2, 3, 5, 10], 4));
+console.log(Insertion([5, 4, 10, 9]));
